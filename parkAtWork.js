@@ -18,10 +18,15 @@ var parkLot = 0;
 var timeStamp = '';
 
 //------------------------------------------------------------------------------
+// Global database object.
+//------------------------------------------------------------------------------
+var db;
+
+//------------------------------------------------------------------------------
 // App initialization.
 //------------------------------------------------------------------------------
 function onLoad() {
-	var db = window.openDatabase('parkAtWork', '1.0', 'ParkAtWork Data', 1024, onDBCreate);
+	db = window.openDatabase('parkAtWork', '1.0', 'ParkAtWork Data', 1024, onDBCreate);
 	db.readTransaction(function(tx) {
 		tx.executeSql("SELECT * FROM ParkData", [], function(tx2, rs) {
 			var dbRow = rs.rows.item(0);
@@ -42,7 +47,11 @@ function onLoad() {
 function onDBCreate(db) {
 	db.transaction(function(tx) {
 		tx.executeSql('CREATE TABLE ParkData(parkFloor INTEGER, parkLot INTEGER,'
-			+ ' timeStamp TEXT)')
+			+ ' timeStamp TEXT)', [], function(tx, rs) {
+				tx.executeSql("INSERT INTO ParkData(parkFloor, parkLot, timeStamp)"
+					+ " VALUES (0, 0, '')");
+			}
+		)
 	});
 }
 
@@ -93,8 +102,7 @@ function updateLocation(lotId) {
 	parkFloor = currentFloor;
 	parkLot = lotId;	
 	timeStamp = getTimeStamp();
-	document.getElementById('timeStamp').innerText = timeStamp;
-	var db = window.openDatabase('parkAtWork', '1.0', 'ParkAtWork Data', 1024, null);
+	document.getElementById('timeStamp').innerText = timeStamp;	
 	db.transaction(function(tx) {
 		tx.executeSql('UPDATE ParkData SET parkFloor=?, parkLot=?, timeStamp=?',
 			[parkFloor, parkLot, timeStamp]);
