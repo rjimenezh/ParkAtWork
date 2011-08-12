@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="parkAtWork.js"></script>
+  </head>
+  <body onload="onLoad()">
+	<!-- Timestamp label -->
+	<div id="timeStamp">&nbsp;</div>
+	<!-- Parking lots -->
+    <div class="upperLot" id="lot1" x-blackberry-focusable="true" onclick="updateLocation(1)"></div>
+	<div class="upperLot" id="lot2" x-blackberry-focusable="true" onclick="updateLocation(2)"></div>
+	<div class="upperLot" id="lot3" x-blackberry-focusable="true" onclick="updateLocation(3)"></div>
+	<div class="upperLot" id="lot4" x-blackberry-focusable="true" onclick="updateLocation(4)"></div>
+	<div class="upperLot" id="lot5" x-blackberry-focusable="true" onclick="updateLocation(5)"></div>
+	<div class="upperLot" id="lot6" x-blackberry-focusable="true" onclick="updateLocation(6)"></div>
+	<div class="lowerLot" id="lot7" x-blackberry-focusable="true" onclick="updateLocation(7)"></div>
+	<div class="lowerLot" id="lot8" x-blackberry-focusable="true" onclick="updateLocation(8)"></div>
+	<div class="lowerLot" id="lot9" x-blackberry-focusable="true" onclick="updateLocation(9)"></div>
+	<div class="lowerLot" id="lot10" x-blackberry-focusable="true" onclick="updateLocation(10)"></div>
+	<div class="lowerLot" id="lot11" x-blackberry-focusable="true" onclick="updateLocation(11)"></div>
+	<div class="lowerLot" id="lot12" x-blackberry-focusable="true" onclick="updateLocation(12)"></div>
+	<!-- Navigation -->
+	<div id="navBar">
+		<img src="up.png" x-blackberry-initialFocus="true" onclick="upStairs()" />
+		<img src="down.png" x-blackberry-focusable="true" onclick="downStairs()" />
+	</div>
+	<div id="floor">1B</div>
+  </body>
+</html>
