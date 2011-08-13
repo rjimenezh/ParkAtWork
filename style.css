@@ -41,20 +41,21 @@ div.lowerLot:hover {
 
 div#navBar {
 	position: absolute;
-	top: 65%
+	left: 5%;
+	top: 75%
 }
 
 div#floor {
 	position: absolute;
-	top: 62%;
-	left: 15%;
-	width: 8%;
-	height: 8%;
-	padding: 1%;
+	top: 72%;
+	left: 30%;
+	width: 13%;
+	height: 12%;
+	padding: 2%;
 	color: white;
 	background-color: orange;
 	font-family: verdana, arial, helvetica;
-	font-size: 16pt;
+	font-size: 24pt;
 	font-weight: bold;
 	text-align: center
 }
