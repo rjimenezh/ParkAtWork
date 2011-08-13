@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no" />
+	<meta name="x-blackberry-defaultHoverEffect" content="false" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="parkAtWork.js"></script>
   </head>
@@ -22,8 +23,10 @@
 	<div class="lowerLot" id="lot12" x-blackberry-focusable="true" onclick="updateLocation(12)"></div>
 	<!-- Navigation -->
 	<div id="navBar">
-		<img src="up.png" x-blackberry-focusable="true" x-blackberry-initialFocus="true" onclick="upStairs()" />
-		<img src="down.png" x-blackberry-focusable="true" onclick="downStairs()" />
+		<img id="up" src="up.png" x-blackberry-focusable="true" x-blackberry-initialFocus="true"
+			onclick="upStairs()" onmouseover="hover('up')" onmouseout="hoverOff('up')"/>
+		<img id="down" src="down.png" x-blackberry-focusable="true" onclick="downStairs()"
+			onmouseover="hover('down')" onmouseout="hoverOff('down')"/>
 	</div>
 	<div id="floor">1B</div>
 	<!-- Spot -->

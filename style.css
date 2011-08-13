@@ -20,6 +20,10 @@ div.upperLot {
 	border-right: 2px solid gray;
 }
 
+div.upperLot:hover {
+	background-color: #8caaff
+}
+
 div.lowerLot {
 	position: relative;
 	top: 10%;
@@ -29,6 +33,10 @@ div.lowerLot {
 	border-left: 2px solid gray;
 	border-bottom: 2px solid gray;
 	border-right: 2px solid gray;
+}
+
+div.lowerLot:hover {
+	background-color: #8caaff
 }
 
 div#navBar {
