@@ -146,11 +146,23 @@ function moveSpotIntoLot(lotId) {
 //------------------------------------------------------------------------------
 function getTimeStamp() {
 	var ts = '';
-	var instant = new Date().toLocaleString().split(' ');
-	var i = 0;
-	for(; i < 3; i++)
-		ts += (instant[i] + ' ');
-	instant = instant[4].split(':');
-	ts += (instant[0] + ':' + instant[1]);
+	var instant = new Date();
+	ts += (instant.getMonth() + 1);
+	ts += '/';
+	ts += instant.getDate();
+	ts += ' @ ';
+	var hour = instant.getHours();
+	var amPm = (hour > 11) ? ' PM' : ' AM';
+	if(hour > 12) 
+		hour -= 12;
+	if(hour == 0)
+		hour = 12;
+	ts += hour;
+	ts += ':';
+	var minutes = instant.getMinutes();
+	if(minutes < 10)
+		minutes = '0' + minutes;
+	ts += minutes;
+	ts += amPm;
 	return ts;
 }
