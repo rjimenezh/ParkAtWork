@@ -2,8 +2,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.0" rim:header="RIM-Widget:rim/widget">
   <name>Park At Work</name>
   <author>Ram&#xF3;n Jim&#xE9;nez</author>
-  <icon src="spot.png" />
   <content src="index.html" />
-  <rim:loadingScreen backgroundColor="black" foregroundImage="spot.png" />
   <rim:navigation mode="focus" />
+  <rim:loadingScreen backgroundColor="#000000" foregroundImage="spot.png" />
 </widget>
