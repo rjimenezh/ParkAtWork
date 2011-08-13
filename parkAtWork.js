@@ -64,6 +64,7 @@ function updateUI() {
 	var floorName = floorIndex + ((currentFloor % 2 == 0) ? 'A' : 'B');
 	var floor = document.getElementById('floor');
 	floor.style.backgroundColor = colors[floorIndex - 1];
+	floor.style.color = (floorIndex == 5) ? 'black' : 'white';
 	floor.innerText = floorName;
 	if(timeStamp.length > 0)
 		document.getElementById('timeStamp').innerText = timeStamp;
