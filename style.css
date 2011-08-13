@@ -33,15 +33,15 @@ div.lowerLot {
 
 div#navBar {
 	position: absolute;
-	top: 63%
+	top: 65%
 }
 
 div#floor {
 	position: absolute;
 	top: 60%;
-	left: 10%;
-	width: 6%;
-	height: 6%;
+	left: 15%;
+	width: 8%;
+	height: 8%;
 	padding: 1%;
 	color: white;
 	background-color: orange;
@@ -49,4 +49,13 @@ div#floor {
 	font-size: 16pt;
 	font-weight: bold;
 	text-align: center
+}
+
+div#spot {
+	display: none;
+	width: 7%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	margin-bottom: 2%
 }

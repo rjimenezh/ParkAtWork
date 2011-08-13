@@ -35,6 +35,7 @@ function onLoad() {
 			timeStamp = dbRow.timeStamp;
 		})
 	}, null, function() {
+		moveSpotIntoLot(parkLot);
 		if(parkFloor > 0)
 			currentFloor = parkFloor;
 		updateUI();
@@ -66,6 +67,9 @@ function updateUI() {
 	floor.innerText = floorName;
 	if(timeStamp.length > 0)
 		document.getElementById('timeStamp').innerText = timeStamp;
+	document.getElementById('spot').style.display =
+		(currentFloor == parkFloor) ? 'block' : 'none';
+
 }
 
 //------------------------------------------------------------------------------
@@ -100,15 +104,27 @@ function downStairs() {
 //------------------------------------------------------------------------------
 function updateLocation(lotId) {
 	parkFloor = currentFloor;
-	parkLot = lotId;	
+	parkLot = lotId;
+	moveSpotIntoLot(lotId);
 	timeStamp = getTimeStamp();
-	document.getElementById('timeStamp').innerText = timeStamp;	
+	updateUI();
 	db.transaction(function(tx) {
 		tx.executeSql('UPDATE ParkData SET parkFloor=?, parkLot=?, timeStamp=?',
 			[parkFloor, parkLot, timeStamp]);
 	}, null, function() {		
 		alert("Parking location updated");
 	});
+}
+
+//------------------------------------------------------------------------------
+// Nests the spot DIV within the specified lot DIV.
+//------------------------------------------------------------------------------
+function moveSpotIntoLot(lotId) {
+	var spot = document.getElementById('spot');
+	spot.parentNode.removeChild(spot);
+	var lot = document.getElementById('lot' + lotId);
+	lot.appendChild(spot);
+	document.getElementById('timeStamp').innerText = timeStamp;	
 }
 
 //------------------------------------------------------------------------------
